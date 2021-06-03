@@ -1,0 +1,9 @@
+.logoClass {
+    float: left;
+    width: 69px;
+    height: 69px;
+    margin-left: 15px;
+}
+.cartClass {
+    float: right;
+}
