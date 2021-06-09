@@ -2,11 +2,13 @@ import logo from "./logo.png"
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from './Components/NavBar.js';
+import { ItemListContainer } from './Components/ItemListContainer.js'
 
 function App() {
   return (
     <div className="App">
       <NavBar/>
+      <ItemListContainer tittle="Carro" message="Carro"/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
