@@ -1,8 +1,8 @@
 import logo from "./logo.png"
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavBar } from './Components/NavBar.js';
-import { ItemListContainer } from './Components/ItemListContainer.js'
+import { NavBar } from './Components/NavBar/NavBar.js';
+import { ItemListContainer } from './Components/ItemListContainer/ItemListContainer.js'
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <p>
           Se vienen cosas facheras...
         </p>
-        <a
+        <a 
           className="App-link"
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           target="_blank"

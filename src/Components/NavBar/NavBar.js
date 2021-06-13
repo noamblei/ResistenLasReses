@@ -1,7 +1,7 @@
 import React from "react";
 import './NavBar.css';
 import logoPng from '~/../logo.png';
-import { CartWidget } from './CartWidget.js';
+import { CartWidget } from '../CartWidget/CartWidget.js';
 
 export function NavBar() {
     return(
@@ -27,4 +27,4 @@ export function NavBar() {
             <CartWidget></CartWidget>
         </nav>
     )
-}
+} 
