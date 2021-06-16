@@ -1,6 +1,8 @@
 import React from 'react'
 import './ItemListContainer.css'
 import { ItemCount } from '../ItemCount/ItemCount.js';
+import { Item } from '../Item/Item.js';
+import { ItemList } from '../ItemList/ItemList.js';
 
 export function ItemListContainer (props){
     const onAdd = () => {alert("1 (un) item fué añadido al carrito exitosamente")}
