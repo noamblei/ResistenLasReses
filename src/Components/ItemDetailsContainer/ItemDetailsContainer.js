@@ -1,11 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import ItemDetails from '../ItemDetails/ItemDetails.js';
 import { useParams } from 'react-router-dom';
+import ItemCount from '../ItemCount/ItemCount.js';
+import './ItemDetailsContainer.css';
 
 const ItemDetailsContainer = (() => {
     const [item, setItem] = useState({});
+    const [quantity, setQuantity] = useState(1);
     const { itemId } = useParams();
     const time = 100;
+
+    const onAdd = () => {setQuantity(quantity++);};
+    const onSubstract = () => {setQuantity(quantity--);};
+    const buy = () => {
+        document.querySelector("#finish").classList.remove("hide");
+        document.querySelector("#finish-text").classList.remove("hide");
+        document.querySelector(".input-group").classList.add("hide");
+        document.querySelector("#buy").classList.add("hide");
+    };
+    const finishBuy = () => {window.location.href = "/cart";};
+
     const getItemDetails = new Promise((resolve, reject) => {
         setTimeout(() => {
             const allItems = [
@@ -29,6 +43,12 @@ const ItemDetailsContainer = (() => {
     return(
         <div className="item-detail-container">
             <ItemDetails name={item.name} img={item.img} price={item.price} description={item.description}></ItemDetails>
+            <div id="buying-section">
+                <ItemCount id="itemCount" stock={item.stock} onAdd={() => onAdd()} onSubstract={() => onSubstract()}></ItemCount>
+                <button type="button" id="buy" className="btn btn-primary" onClick={() => buy()}>Comprar</button>
+                <button type="button" id="finish" className="btn btn-success hide" onClick={() => finishBuy()}>Finalizar compra</button>
+                <span id="finish-text" className="hide"> {quantity} elementos</span>
+            </div>
         </div>
     )
 })

@@ -2,3 +2,7 @@
     border-color: rgb(77, 76, 76);  
     text-align: center;
 }
+
+.input-group{
+    justify-content: center;
+} 

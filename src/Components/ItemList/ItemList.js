@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Item from '../Item/Item.js';
 import ItemDetailsContainer from '../ItemDetailsContainer/ItemDetailsContainer.js';
-import { ItemCount } from '../ItemCount/ItemCount.js';
+import ItemCount from '../ItemCount/ItemCount.js';
 
 const ItemList = (({items}) => {
     const onAdd = (itemName) => {alert("1 (un) " + itemName + " fué añadido al carrito exitosamente")}
