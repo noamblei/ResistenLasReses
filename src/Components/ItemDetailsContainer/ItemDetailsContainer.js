@@ -10,8 +10,8 @@ const ItemDetailsContainer = (() => {
     const { itemId } = useParams();
     const time = 100;
 
-    const onAdd = () => {setQuantity(quantity++);};
-    const onSubstract = () => {setQuantity(quantity--);};
+    const onAdd = () => {setQuantity(quantity+1);};
+    const onSubstract = () => {setQuantity(quantity-1);};
     const buy = () => {
         document.querySelector("#finish").classList.remove("hide");
         document.querySelector("#finish-text").classList.remove("hide");
