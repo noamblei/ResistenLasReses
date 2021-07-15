@@ -39,7 +39,7 @@ switch(rnd){
 
 export function NavBar() {
     return(    
-        <nav class="navbar navbar-expand-lg navbar-dark" style={{'background-color': '#444444'}}>
+        <nav class="navbar navbar-expand-lg navbar-dark" style={{'backgroundColor': '#444444'}}>
             <div class="container-fluid">
                 <NavLink to="/">
                     <img alt='logo' className='logoClass' src={logoPng}></img>
@@ -75,7 +75,9 @@ export function NavBar() {
                         <input size="lg" class="form-control inputClass" type="search" placeholder={placeholderText} aria-label="Search"/>
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
-                    <CartWidget></CartWidget>
+                    <NavLink to="/cart">
+                        <CartWidget/>
+                    </NavLink>
                 </div>
             </div>
         </nav>
