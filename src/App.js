@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from './Components/NavBar/NavBar.js';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer.js';
+import SearchItemListContainer from './Components/ItemListContainer/SearchItemListContainer.js';
 import ItemDetailsContainer from './Components/ItemDetailsContainer/ItemDetailsContainer';
 import Cart from './Components/Cart/Cart';
 import CartContextProvider from './Context/CartContext/CartContext.js';
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route path="/category/:categoryId">
               <ItemListContainer/>
+            </Route>
+            <Route path="/search/:name">
+              <SearchItemListContainer/>
             </Route>
             <Route exact path="/item/:itemId">
               <ItemDetailsContainer/>

@@ -7,13 +7,22 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
 
     function addItem (value, qty, ask = true) {
         value.quantity = qty;
-        if (!isInCart(value.id)){
-            setItems(items.concat([value]));
-        }
-        else if (ask){
-            var r = window.confirm("Ya tenés " + value.name + " en el carrito, querés agregar " + value.quantity + " más?");
-            if (r == true)
-            {
+        if (isStockAvailable(value.id)){
+            if (!isInCart(value.id)){
+                setItems(items.concat([value]));
+            }
+            else if (ask){
+                var r = window.confirm("Ya tenés " + value.name + " en el carrito, querés agregar " + value.quantity + " más?");
+                if (r == true)
+                {
+                    for(const [key, element] in Object.entries(items)){
+                        if (items[key].id == value.id){
+                            items[key].quantity += value.quantity; 
+                        }
+                    }
+                }
+            }
+            else{
                 for(const [key, element] in Object.entries(items)){
                     if (items[key].id == value.id){
                         items[key].quantity += value.quantity; 
@@ -22,11 +31,7 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
             }
         }
         else{
-            for(const [key, element] in Object.entries(items)){
-                if (items[key].id == value.id){
-                    items[key].quantity += value.quantity; 
-                }
-            }
+            alert("No hay más " + value.name + " disponibles en este momento");
         }
     }
 
@@ -50,6 +55,11 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
         return items.find(x => x.id === itemId);
     }
 
+    function isStockAvailable (itemId, stockToaAdd) {
+        let it = items.find(x => x.id === itemId);
+        return it ? !((it.quantity + stockToaAdd) >= it.stock) : true;
+    }
+
     function getTotalBuys () {
         let buy = 0;
         items.forEach(item => {
@@ -70,7 +80,7 @@ const CartContextProvider = ({ defaultValue = [], children }) => {
         return price;
     }
 
-    return <CartContext.Provider value={{ items, addItem, removeItem, clear, isInCart, getTotalBuys, getTotalPrice }}>
+    return <CartContext.Provider value={{ items, addItem, removeItem, clear, isInCart, getTotalBuys, getTotalPrice, isStockAvailable }}>
         {children}
     </CartContext.Provider>
 }

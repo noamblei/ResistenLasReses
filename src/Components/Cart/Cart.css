@@ -1,17 +1,17 @@
-.itemMargin {
+.item-margin {
     margin-top: 20px;
   }
 
-.imgMargin {
+.img-margin {
     margin-top: 22px;
     margin-left: 22px;
 }
 
-.trashMargin {
+.trash-margin {
     margin-top: 10px;
     margin-left: 38px;
 }
 
-.finishSection, .formGroup {
+.finish-section, .form-group {
     margin-top: 20px;
 } 

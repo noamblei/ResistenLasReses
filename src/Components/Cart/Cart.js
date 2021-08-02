@@ -60,12 +60,12 @@ const Cart = () => {
         {(items.length > 0) ? <div>
             {items.map( (item, i) => {
                 return(
-                    <div className="card mb-3 itemMargin" style={{'maxWidth': '550px'}}>
+                    <div className="card mb-3 item-margin" style={{'maxWidth': '550px'}}>
                       <div className="row no-gutters">
                         <div className="col-md-5">
-                          <img src={item.img} className="card-img imgMargin"/>
+                          <img src={item.img} className="card-img img-margin"/>
                           <div className="btn-area">
-                            <button className="btn trashMargin" onClick={() => { removeItem(item.id) }}>
+                            <button className="btn trash-margin" onClick={() => { removeItem(item.id) }}>
                                 <FontAwesomeIcon icon={faTrash}/>
                             </button>
                         </div>
@@ -93,21 +93,21 @@ const Cart = () => {
         </div>
         }
         {finish &&
-        <div className="finishSection container">
+        <div className="finish-section container">
           <form>
-            <div className="formGroup row">
+            <div className="form-group row">
               <label for="input-mail" className="col-sm-2 col-form-label">Correo electrónico:</label>
               <div className="col-sm-10">
                 <input type="email" className="form-control" id="input-mail" aria-describedby="emailHelp"/>
               </div>
             </div>
-            <div className="formGroup row">
+            <div className="form-group row">
               <label for="input-name" className="col-sm-2 col-form-label">Nombre:</label>
               <div className="col-sm-10">
                 <input type="text" className="form-control email" id="input-name"/>
               </div>
             </div>
-            <div className="formGroup row">
+            <div className="form-group row">
               <label for="input-phone" className="col-sm-2 col-form-label">Telefono:</label>
               <div className="col-sm-10">
                 <input type="number" className="form-control phone" id="input-phone"/>
